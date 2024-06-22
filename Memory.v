@@ -46,22 +46,38 @@ initial begin
 //		mem[i] = {WORD_WIDTH {1'b0}};
 //	end
 
-	$readmemb("ram.mem", mem);
+	`define RAM_MEMORY mem
+	`include "meminit_ram.v"
+	//$readmemb("ram.mem", mem);
 end
 
-assign Dbus = Dout ? S : {WORD_WIDTH {1'bZ}};
+wire [WORD_WIDTH-1:0] S_safe;
+
+assign S_safe = read ? mem[A] : S;
+
+assign Dbus = Dout ? S_safe : {WORD_WIDTH {1'bZ}};
 
 always @(posedge CLK)
 begin
 	if(Ain) A <= Abus;
 	
 	if(Din) S <= Dbus;
-end
-
-always @(write, read)
-begin
+	
 	if(read) S <= mem[A];
 	if(write) mem[A] <= S;
+	
+//	if(CLK)
+//	begin
+//		if(Ain) A <= Abus;
+//		if(Din) S <= Dbus;
+//
+//		if(write) mem[A] <= S;
+//	end
+//	else
+//		S <= mem[A];
+//	
 end
+
+//always @(read) S <= mem[A];
 
 endmodule

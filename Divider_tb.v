@@ -4,15 +4,15 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   02:08:48 06/15/2024
-// Design Name:   MachineV
-// Module Name:   D:/Projects/MachineV/MachineV_tb.v
+// Create Date:   14:25:33 06/15/2024
+// Design Name:   Divider
+// Module Name:   D:/Projects/MachineV/Divider_tb.v
 // Project Name:  MachineV
 // Target Device:  
 // Tool versions:  
 // Description: 
 //
-// Verilog Test Fixture created by ISE for module: MachineV
+// Verilog Test Fixture created by ISE for module: Divider
 //
 // Dependencies:
 // 
@@ -22,40 +22,37 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module MachineV_tb;
+module Divider_tb;
 
 	// Inputs
 	reg CLK;
+	reg CE;
 
 	// Outputs
-	wire [31:0] signals;
-	wire [3:0] instr;
-
-	// Bidirs
-	wire [11:0] Abus;
-	wire [15:0] Dbus;
+	wire [2:0] Q;
+	wire CO;
 
 	// Instantiate the Unit Under Test (UUT)
-	MachineV uut (
+	Divider #(
+		.MODULO(1)
+	) uut (
 		.CLK(CLK), 
-		.Abus(Abus), 
-		.Dbus(Dbus), 
-		.signals(signals), 
-		.instr(instr)
+		.CE(CE), 
+		.Q(Q), 
+		.CO(CO)
 	);
 
 	initial begin
 		// Initialize Inputs
 		CLK = 0;
+		CE = 0;
 
 		// Wait 100 ns for global reset to finish
-		#20;
+		#100;
+		
+		CE = 1;
         
 		// Add stimulus here
-		
-		//#2000;
-		
-		//$finish;
 
 	end
 	

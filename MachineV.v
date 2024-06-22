@@ -20,8 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 module MachineV
 	#(
-		WORD_WIDTH = 8,
-		ADDRESS_WIDTH = 5
+		WORD_WIDTH = 16,
+		ADDRESS_WIDTH = 12
 	)
 	(
 		input CLK,
@@ -30,6 +30,7 @@ module MachineV
 		inout [WORD_WIDTH-1:0] Dbus,
 		
 		output [SIGNAL_COUNT-1:0] signals,
+		output [FLAG_COUNT-1:0] flags,
 		output [WORD_WIDTH - ADDRESS_WIDTH - 1:0] instr,
 		
 		output [ADDRESS_WIDTH-1:0] L,
@@ -37,6 +38,7 @@ module MachineV
 	);
 
 parameter SIGNAL_COUNT = 32;
+parameter FLAG_COUNT = 4;
 
 wire ALU_add, ALU_sub, ALU_write, ALU_read;
 assign {ALU_add, ALU_sub, ALU_write, ALU_read} = signals[3:0]; //4
@@ -49,6 +51,17 @@ assign {L_in, L_out, L_inc} = signals[8:6]; //3
 
 wire Mem_write, Mem_read, Mem_in, Mem_out, Mem_addr;
 assign {Mem_write, Mem_read, Mem_in, Mem_out, Mem_addr} = signals[13:9]; //5
+
+wire cross_bus;
+assign {cross_bus} = signals[14]; // 1
+
+//assign Abus = cross_bus ? Dbus[ADDRESS_WIDTH-1:0] : {ADDRESS_WIDTH{1'bZ}};
+//assign Dbus = cross_bus ? {{(WORD_WIDTH - ADDRESS_WIDTH) {1'b0}}, Abus} : {WORD_WIDTH{1'bZ}};
+assign Dbus = cross_bus ? {16{1'b1}} : {16{1'bZ}};
+
+assign flags[0] = Acc[WORD_WIDTH-1]; // Sign flag
+assign flags[1] = ~|Acc; // Zero flag
+assign flags[FLAG_COUNT-1:2] = {FLAG_COUNT-2{1'b0}};
 
 ALU #(
 	.WIDTH(WORD_WIDTH)
@@ -111,10 +124,17 @@ Memory #(
 	.Dout(Mem_out)
 );
 
-ControlUnit cu (
+ControlUnit #(
+	.WORD_WIDTH(WORD_WIDTH),
+	.ADDRESS_WIDTH(ADDRESS_WIDTH),
+	.SIGNAL_COUNT(SIGNAL_COUNT),
+	.FLAG_COUNT(FLAG_COUNT),
+	.MAX_CYCLES(4)
+) cu (
 	.CLK(CLK),
 	
 	.instr(instr),
+	.flags(flags),
 	
 	.signals(signals)
 );

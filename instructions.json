@@ -1,0 +1,105 @@
+{
+    "architecture": {
+        "address": 12,
+        "word": 16,
+        
+        "signals": 32,
+        "cycles": 4,
+        "instructions": 16,
+        "flags": {
+            "count": 4,
+            "literals": "**ZS"
+        }
+    },
+
+    "signals": [
+        "ALU_read", "ALU_write", "ALU_sub", "ALU_add",
+    
+        "I_out", "I_in",
+    
+        "L_inc", "L_out", "L_in",
+    
+        "Mem_addr", "Mem_out", "Mem_in", "Mem_read", "Mem_write",
+
+        "cross_bus"
+    ],
+
+    "instructions": {
+        "STP": {
+            "code": 0,
+            "*": [
+                ["Mem_read", "Mem_out", "I_in", "L_inc"],
+                ["L_out", "Mem_addr"]
+            ]
+        },
+        "ADD": {
+            "code": 1,
+            "*": [
+                ["Mem_read", "Mem_out", "I_in", "L_inc"],
+                ["I_out", "Mem_addr"],
+                ["Mem_read", "Mem_out", "ALU_add", "ALU_write", "L_out", "Mem_addr"]
+            ]
+        },
+        "SUB": {
+            "code": 2,
+            "*": [
+                ["Mem_read", "Mem_out", "I_in", "L_inc"],
+                ["I_out", "Mem_addr"],
+                ["Mem_read", "Mem_out", "ALU_sub", "ALU_write", "L_out", "Mem_addr"]
+            ]
+        },
+        "GET": {
+            "code": 3,
+            "*": [
+                ["Mem_read", "Mem_out", "I_in", "L_inc"],
+                ["I_out", "Mem_addr"],
+                ["Mem_read", "Mem_out", "ALU_write", "L_out", "Mem_addr"]
+            ]
+        },
+        "PUT": {
+            "code": 4,
+            "*": [
+                ["Mem_read", "Mem_out", "I_in", "L_inc"],
+                ["I_out", "Mem_addr", "ALU_read", "Mem_in"],
+                ["Mem_write", "L_out", "Mem_addr"]
+            ]
+        },
+        "JMP": {
+            "code": 5,
+            "*": [
+                ["Mem_read", "Mem_out", "I_in", "L_inc"],
+                ["I_out", "L_in", "Mem_addr"]
+            ]
+        },
+        "JS": {
+            "code": 6,
+            "!S": [
+                ["Mem_read", "Mem_out", "I_in", "L_inc"],
+                ["L_out", "Mem_addr"]
+            ],
+            "S": [
+                ["Mem_read", "Mem_out", "I_in", "L_inc"],
+                ["I_out", "L_in", "Mem_addr"]
+            ]
+        },
+        "JZ": {
+            "code": 7,
+            "!Z": [
+                ["Mem_read", "Mem_out", "I_in", "L_inc"],
+                ["L_out", "Mem_addr"]
+            ],
+            "Z": [
+                ["Mem_read", "Mem_out", "I_in", "L_inc"],
+                ["I_out", "L_in", "Mem_addr"]
+            ]
+        },
+
+        "GETL": {
+            "code": 8,
+            "*": [
+                ["Mem_read", "Mem_out", "I_in", "L_inc"],
+                ["L_out", "cross_bus", "ALU_write", "Mem_addr"]
+            ]
+        }
+    }
+}

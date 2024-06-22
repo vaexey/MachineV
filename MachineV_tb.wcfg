@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="D:/Projects/MachineV/MachineV_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="MachineV_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="34" />
+   <wvobject fp_name="/MachineV_tb/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/Abus" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Abus[11:0]</obj_property>
+      <obj_property name="ObjectShortName">Abus[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/Dbus" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Dbus[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Dbus[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/alu/Acc" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Acc[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Acc[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/lcnt/L" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">L[11:0]</obj_property>
+      <obj_property name="ObjectShortName">L[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/ireg/I" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">I[15:0]</obj_property>
+      <obj_property name="ObjectShortName">I[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/mem/A" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">A[11:0]</obj_property>
+      <obj_property name="ObjectShortName">A[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/mem/S" type="array" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">S[15:0]</obj_property>
+      <obj_property name="ObjectShortName">S[15:0]</obj_property>
+      <obj_property name="label">S[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/instr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">instr[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/flags" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">flags[3:0]</obj_property>
+      <obj_property name="ObjectShortName">flags[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/signals" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">signals[31:0]</obj_property>
+      <obj_property name="ObjectShortName">signals[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <wvobject fp_name="/MachineV_tb/signals[31]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[31]</obj_property>
+         <obj_property name="ObjectShortName">signals[31]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[30]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[30]</obj_property>
+         <obj_property name="ObjectShortName">signals[30]</obj_property>
+         <obj_property name="label">[30]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[29]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[29]</obj_property>
+         <obj_property name="ObjectShortName">signals[29]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[28]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[28]</obj_property>
+         <obj_property name="ObjectShortName">signals[28]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[27]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[27]</obj_property>
+         <obj_property name="ObjectShortName">signals[27]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[26]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[26]</obj_property>
+         <obj_property name="ObjectShortName">signals[26]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[25]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[25]</obj_property>
+         <obj_property name="ObjectShortName">signals[25]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[24]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[24]</obj_property>
+         <obj_property name="ObjectShortName">signals[24]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[23]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[23]</obj_property>
+         <obj_property name="ObjectShortName">signals[23]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[22]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[22]</obj_property>
+         <obj_property name="ObjectShortName">signals[22]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[21]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[21]</obj_property>
+         <obj_property name="ObjectShortName">signals[21]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[20]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[20]</obj_property>
+         <obj_property name="ObjectShortName">signals[20]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[19]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[19]</obj_property>
+         <obj_property name="ObjectShortName">signals[19]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[18]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[18]</obj_property>
+         <obj_property name="ObjectShortName">signals[18]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[17]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[17]</obj_property>
+         <obj_property name="ObjectShortName">signals[17]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[16]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[16]</obj_property>
+         <obj_property name="ObjectShortName">signals[16]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[15]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[15]</obj_property>
+         <obj_property name="ObjectShortName">signals[15]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[14]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[14]</obj_property>
+         <obj_property name="ObjectShortName">signals[14]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[13]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">signals[13]</obj_property>
+         <obj_property name="label">[13] Mem_write</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[12]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">signals[12]</obj_property>
+         <obj_property name="label">[12] Mem_read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[11]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">signals[11]</obj_property>
+         <obj_property name="label">[11] Mem_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[10]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">signals[10]</obj_property>
+         <obj_property name="label">[10] Mem_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[9]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">signals[9]</obj_property>
+         <obj_property name="label">[9] Mem_addr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[8]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">signals[8]</obj_property>
+         <obj_property name="label">[8] L_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[7]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">signals[7]</obj_property>
+         <obj_property name="label">[7] L_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[6]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">signals[6]</obj_property>
+         <obj_property name="label">[6] L_inc</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[5]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">signals[5]</obj_property>
+         <obj_property name="label">[5] I_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[4]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">signals[4]</obj_property>
+         <obj_property name="label">[4] I_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[3]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">signals[3]</obj_property>
+         <obj_property name="label">[3] ALU_add</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[2]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">signals[2]</obj_property>
+         <obj_property name="label">[2] ALU_sub</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[1]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">signals[1]</obj_property>
+         <obj_property name="label">[1] ALU_write</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/signals[0]" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">signals[0]</obj_property>
+         <obj_property name="label">[0] ALU_read</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/cu/instrLength" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instrLength[1:0]</obj_property>
+      <obj_property name="ObjectShortName">instrLength[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/cu/phase" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">phase[1:0]</obj_property>
+      <obj_property name="ObjectShortName">phase[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/cu/fetch" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fetch</obj_property>
+      <obj_property name="ObjectShortName">fetch</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/cross_bus" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cross_bus</obj_property>
+      <obj_property name="ObjectShortName">cross_bus</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/Mem_write" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Mem_write</obj_property>
+      <obj_property name="ObjectShortName">Mem_write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/Mem_read" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Mem_read</obj_property>
+      <obj_property name="ObjectShortName">Mem_read</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/Mem_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Mem_in</obj_property>
+      <obj_property name="ObjectShortName">Mem_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/Mem_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Mem_out</obj_property>
+      <obj_property name="ObjectShortName">Mem_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/Mem_addr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Mem_addr</obj_property>
+      <obj_property name="ObjectShortName">Mem_addr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/L_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">L_in</obj_property>
+      <obj_property name="ObjectShortName">L_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/L_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">L_out</obj_property>
+      <obj_property name="ObjectShortName">L_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/L_inc" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">L_inc</obj_property>
+      <obj_property name="ObjectShortName">L_inc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/I_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">I_in</obj_property>
+      <obj_property name="ObjectShortName">I_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/I_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">I_out</obj_property>
+      <obj_property name="ObjectShortName">I_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/ALU_add" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ALU_add</obj_property>
+      <obj_property name="ObjectShortName">ALU_add</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/ALU_sub" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ALU_sub</obj_property>
+      <obj_property name="ObjectShortName">ALU_sub</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/ALU_write" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ALU_write</obj_property>
+      <obj_property name="ObjectShortName">ALU_write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/ALU_read" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ALU_read</obj_property>
+      <obj_property name="ObjectShortName">ALU_read</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/cu/signalMapKey" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">signalMapKey[9:0]</obj_property>
+      <obj_property name="ObjectShortName">signalMapKey[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="vbus80" type="vbus" db_ref_id="1">
+      <obj_property name="label">signalMapKeyInstr</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/MachineV_tb/uut/cu/signalMapKey[9]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">signalMapKey[9]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/uut/cu/signalMapKey[8]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">signalMapKey[8]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/uut/cu/signalMapKey[7]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">signalMapKey[7]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/uut/cu/signalMapKey[6]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">signalMapKey[6]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="vbus75" type="vbus" db_ref_id="1">
+      <obj_property name="label">signalMapKeyFlags</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/MachineV_tb/uut/cu/signalMapKey[5]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">signalMapKey[5]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/uut/cu/signalMapKey[4]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">signalMapKey[4]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/uut/cu/signalMapKey[3]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">signalMapKey[3]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/uut/cu/signalMapKey[2]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">signalMapKey[2]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="vbus72" type="vbus" db_ref_id="1">
+      <obj_property name="label">signalMapKeyPhase</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/MachineV_tb/uut/cu/signalMapKey[1]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">signalMapKey[1]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/MachineV_tb/uut/cu/signalMapKey[0]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">signalMapKey[0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/MachineV_tb/uut/mem/S_safe" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">S_safe[15:0]</obj_property>
+      <obj_property name="ObjectShortName">S_safe[15:0]</obj_property>
+   </wvobject>
+</wave_config>

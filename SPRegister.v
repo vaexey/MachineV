@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    12:07:26 06/15/2024 
+// Create Date:    10:09:57 06/20/2024 
 // Design Name: 
-// Module Name:    Divider 
+// Module Name:    SPRegister 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,35 +18,38 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Divider
+module SPRegister
 	#(
-		MODULO = 100_000_000
+		WORD_WIDTH = 8,
+		ADDRESS_WIDTH = 5
 	)
 	(
-		input CLK,
+		input CLK, //CLR,
+	
+		input Din, Aout,
 		
-		input CE,
+		input inc, dec,
 		
-		output reg [WIDTH-1:0] Q = {WIDTH{1'b0}},
-		output reg CO = 0
-	);
+		inout [ADDRESS_WIDTH-1:0] Abus,
+		
+		output reg [ADDRESS_WIDTH-1:0] SP = {ADDRESS_WIDTH{1'b0}}
+   );
 
-parameter WIDTH = $clog2(MODULO);
+assign Abus = Aout ? SP : {ADDRESS_WIDTH{1'bZ}};
 
 always @(posedge CLK)
 begin
+//	if(CLR)
+//		SP <= {ADDRESS_WIDTH{1'b0}};
 
-	if(CE)
-	begin
-		if(Q == MODULO-1)
-		begin
-			Q = {WIDTH{1'b0}};
-			CO = ~CO;
-		end
-		else
-			Q = Q + 1'b1;
-	end
-
+	if(Din)
+		SP <= Abus;
+	
+	if(inc)
+		SP = SP + 1;
+		
+	if(dec)
+		SP = SP - 1;
 end
 
 endmodule

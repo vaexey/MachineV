@@ -20,14 +20,17 @@
 //////////////////////////////////////////////////////////////////////////////////
 module ControlUnit
 	#(
-		INSTR_COUNT = 8,
+		WORD_WIDTH = 8,
+		ADDRESS_WIDTH = 5,
 		SIGNAL_COUNT = 32,
-		MAX_CYCLES = 8
+		FLAG_COUNT = 4,
+		MAX_CYCLES = 4
 	)
 	(
 		input CLK,
 		
 		input [INSTR_WIDTH - 1:0] instr,
+		input [FLAG_COUNT-1:0] flags,
 		
 		output reg fetch = 1,
 		output execute,
@@ -39,11 +42,28 @@ module ControlUnit
 
 assign execute = ~fetch;
 
-parameter INSTR_WIDTH = $clog2(INSTR_COUNT);
+parameter INSTR_WIDTH = WORD_WIDTH - ADDRESS_WIDTH; //$clog2(INSTR_COUNT);
+parameter INSTR_COUNT = 2**INSTR_WIDTH;
 parameter CYCLE_WIDTH = $clog2(MAX_CYCLES);
 
-reg [SIGNAL_COUNT-1:0] signalMap [INSTR_COUNT-1:0] [MAX_CYCLES-1:0];
-reg [CYCLE_WIDTH-1:0] instrLengthMap [INSTR_COUNT-1:0];
+//parameter TOTAL_MAP_COUNT = INSTR_COUNT * (2**FLAG_COUNT);
+//parameter TOTAL_MAP_WIDTH = INSTR_WIDTH + FLAG_COUNT;
+
+parameter LENGTH_MAP_COUNT = INSTR_COUNT * (2**FLAG_COUNT);
+parameter LENGTH_MAP_WIDTH = INSTR_WIDTH + FLAG_COUNT;
+
+parameter TOTAL_MAP_COUNT = LENGTH_MAP_COUNT * MAX_CYCLES;
+parameter TOTAL_MAP_WIDTH = LENGTH_MAP_WIDTH + CYCLE_WIDTH;
+
+//reg [SIGNAL_COUNT-1:0] signalMap [TOTAL_MAP_COUNT-1:0] [MAX_CYCLES-1:0];
+reg [SIGNAL_COUNT-1:0] signalMap [TOTAL_MAP_COUNT-1:0];
+reg [CYCLE_WIDTH-1:0] instrLengthMap [LENGTH_MAP_COUNT-1:0];
+
+wire [CYCLE_WIDTH-1:0] phaseKey = fetch ? 0 : phase;
+
+wire [TOTAL_MAP_WIDTH-1:0] signalMapKey;
+//assign signalMapKey = { instr, flags };
+assign signalMapKey = { instr, flags, phaseKey };
 
 integer f_sig, i, j, r;
 initial
@@ -59,76 +79,16 @@ begin
 //		end
 //	end
 //	$fclose(f_sig);
-signalMap[0][0] = 32'b00000000000000000001010001100000;
-signalMap[0][1] = 32'b00000000000000000000001010000000;
-signalMap[0][2] = 32'b00000000000000000000000000000000;
-signalMap[0][3] = 32'b00000000000000000000000000000000;
-signalMap[0][4] = 32'b00000000000000000000000000000000;
-signalMap[0][5] = 32'b00000000000000000000000000000000;
-signalMap[0][6] = 32'b00000000000000000000000000000000;
-signalMap[0][7] = 32'b00000000000000000000000000000000;
-signalMap[1][0] = 32'b00000000000000000001010001100000;
-signalMap[1][1] = 32'b00000000000000000000001000010000;
-signalMap[1][2] = 32'b00000000000000000001011010001010;
-signalMap[1][3] = 32'b00000000000000000000000000000000;
-signalMap[1][4] = 32'b00000000000000000000000000000000;
-signalMap[1][5] = 32'b00000000000000000000000000000000;
-signalMap[1][6] = 32'b00000000000000000000000000000000;
-signalMap[1][7] = 32'b00000000000000000000000000000000;
-signalMap[2][0] = 32'b00000000000000000001010001100000;
-signalMap[2][1] = 32'b00000000000000000000001000010000;
-signalMap[2][2] = 32'b00000000000000000001011010000110;
-signalMap[2][3] = 32'b00000000000000000000000000000000;
-signalMap[2][4] = 32'b00000000000000000000000000000000;
-signalMap[2][5] = 32'b00000000000000000000000000000000;
-signalMap[2][6] = 32'b00000000000000000000000000000000;
-signalMap[2][7] = 32'b00000000000000000000000000000000;
-signalMap[3][0] = 32'b00000000000000000001010001100000;
-signalMap[3][1] = 32'b00000000000000000000001000010000;
-signalMap[3][2] = 32'b00000000000000000001011010000010;
-signalMap[3][3] = 32'b00000000000000000000000000000000;
-signalMap[3][4] = 32'b00000000000000000000000000000000;
-signalMap[3][5] = 32'b00000000000000000000000000000000;
-signalMap[3][6] = 32'b00000000000000000000000000000000;
-signalMap[3][7] = 32'b00000000000000000000000000000000;
-signalMap[4][0] = 32'b00000000000000000001010001100000;
-signalMap[4][1] = 32'b00000000000000000000101000010001;
-signalMap[4][2] = 32'b00000000000000000010001010000000;
-signalMap[4][3] = 32'b00000000000000000000000000000000;
-signalMap[4][4] = 32'b00000000000000000000000000000000;
-signalMap[4][5] = 32'b00000000000000000000000000000000;
-signalMap[4][6] = 32'b00000000000000000000000000000000;
-signalMap[4][7] = 32'b00000000000000000000000000000000;
-signalMap[5][0] = 32'b00000000000000000001010001100000;
-signalMap[5][1] = 32'b00000000000000000000001100010000;
-signalMap[5][2] = 32'b00000000000000000000000000000000;
-signalMap[5][3] = 32'b00000000000000000000000000000000;
-signalMap[5][4] = 32'b00000000000000000000000000000000;
-signalMap[5][5] = 32'b00000000000000000000000000000000;
-signalMap[5][6] = 32'b00000000000000000000000000000000;
-signalMap[5][7] = 32'b00000000000000000000000000000000;
-signalMap[6][0] = 32'b00000000000000000000000000000000;
-signalMap[6][1] = 32'b00000000000000000000000000000000;
-signalMap[6][2] = 32'b00000000000000000000000000000000;
-signalMap[6][3] = 32'b00000000000000000000000000000000;
-signalMap[6][4] = 32'b00000000000000000000000000000000;
-signalMap[6][5] = 32'b00000000000000000000000000000000;
-signalMap[6][6] = 32'b00000000000000000000000000000000;
-signalMap[6][7] = 32'b00000000000000000000000000000000;
-signalMap[7][0] = 32'b00000000000000000000000000000000;
-signalMap[7][1] = 32'b00000000000000000000000000000000;
-signalMap[7][2] = 32'b00000000000000000000000000000000;
-signalMap[7][3] = 32'b00000000000000000000000000000000;
-signalMap[7][4] = 32'b00000000000000000000000000000000;
-signalMap[7][5] = 32'b00000000000000000000000000000000;
-signalMap[7][6] = 32'b00000000000000000000000000000000;
-signalMap[7][7] = 32'b00000000000000000000000000000000;
+	`define SIGNALS_MAP signalMap
+	`include "meminit_signals.v"
 	
+	`define LENGTHS_MAP instrLengthMap
+	`include "meminit_lengths.v"
 	
-	$readmemh("lengths.mem", instrLengthMap);
+//	$readmemh("lengths.mem", instrLengthMap);
 end
 
-reg [SIGNAL_COUNT-1:0] readSignals;
+//reg [SIGNAL_COUNT-1:0] readSignals;
 reg [CYCLE_WIDTH-1:0] instrLength;
 
 always @(negedge CLK)
@@ -142,7 +102,9 @@ begin
 		
 		//instrLength = instrLengthMap[instr];
 		//readSignals = signalMap[instr][0];
-		signals = signalMap[instr][0];
+		
+		//signals = signalMap[signalMapKey][0];
+		signals = signalMap[signalMapKey];
 		
 		fetch = 0;
 	end else begin
@@ -150,8 +112,10 @@ begin
 		
 		//signals <= readSignals;
 		//readSignals = signalMap[instr][phase];
-		signals = signalMap[instr][phase];
-		instrLength = instrLengthMap[instr];
+		
+		//signals = signalMap[signalMapKey][phase];
+		signals = signalMap[signalMapKey];
+		instrLength = instrLengthMap[signalMapKey[TOTAL_MAP_WIDTH-1:CYCLE_WIDTH]];
 		
 		if(phase == instrLength)
 		begin
